@@ -66,7 +66,7 @@ public class MusicOrganizer
      */
     public void checkIndex(int index) { 
         if (!(index >= 0 && index <= files.size()-1)) {
-            System.out.println("Invalid index!" + "Valid indexes are: " + 0 + "-" + (files.size()-1));
+            System.out.println("Invalid index! Valid indexes are: 0-" + (files.size()-1));
         }
     }
     
@@ -76,5 +76,54 @@ public class MusicOrganizer
      */
     public boolean validIndex(int index) {
         return (index >= 0 && index < files.size());
+    }
+    
+    /*
+     * Question 4: 
+     * public void listAllFiles() {}
+     * Return type: void
+     * No parameters.
+     */
+    
+    /*
+     * Question 5:
+     * To complete the method, it's better if we use a for each loop, since it depends on the size of the collection.
+     */
+    
+    /**
+     * Solution to Question 6
+     */
+    public void listAllFiles() {
+        for (String filename : files) {
+            System.out.println(filename);
+        }
+    }
+    
+    /**
+     * Solution to question 7 
+     */
+    public void listWithIndex() {
+        int position = 0;
+        for (String filename : files) {
+            System.out.println(position + ": " + filename);
+            position++;
+        }
+    }
+    
+    /**
+     * Solution to question 8
+     */
+    public void listMatching(String searchString) {
+        boolean match = false;
+        for (String filename : files) {
+            if (filename.contains(searchString)) {
+                // A match
+                System.out.println(filename);
+                match = true;
+            }
+        }
+        if (!match) {
+            System.out.println("No match has been found!");
+        }
     }
 }
