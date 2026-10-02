@@ -43,7 +43,7 @@ public class MusicOrganizer
      */
     public void listFile(int index)
     {
-        if(index >= 0 && index < files.size()) {
+        if(validIndex(index)) {
             String filename = files.get(index);
             System.out.println(filename);
         }
@@ -55,8 +55,26 @@ public class MusicOrganizer
      */
     public void removeFile(int index)
     {
-        if(index >= 0 && index < files.size()) {
+        if(validIndex(index)) {
             files.remove(index);
         }
+    }
+    
+    /**
+     * Solution to Question 1
+     * Doesn't work as expected if the collection is empty.
+     */
+    public void checkIndex(int index) { 
+        if (!(index >= 0 && index <= files.size()-1)) {
+            System.out.println("Invalid index!" + "Valid indexes are: " + 0 + "-" + (files.size()-1));
+        }
+    }
+    
+    /**
+     * Solution to Question 2
+     * Works as expected if the collection is empty.
+     */
+    public boolean validIndex(int index) {
+        return (index >= 0 && index < files.size());
     }
 }
